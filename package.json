@@ -3,11 +3,14 @@
   "version": "1.0.0",
   "description": "Proyecto de backend de RollingCoffe",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "start": "node index.js"
-    
   },
   "keywords": [],
   "author": "c76i emir - RCS",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.3"
+  }
 }
