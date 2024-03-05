@@ -1,0 +1,12 @@
+{
+  "name": "backendrollingcoffe",
+  "version": "1.0.0",
+  "description": "Proyecto de backend de RollingCoffe",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "c76i emir - RCS",
+  "license": "ISC"
+}
