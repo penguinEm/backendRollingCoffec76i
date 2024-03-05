@@ -4,7 +4,8 @@
   "description": "Proyecto de backend de RollingCoffe",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js"
+    
   },
   "keywords": [],
   "author": "c76i emir - RCS",
