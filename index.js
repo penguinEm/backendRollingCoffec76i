@@ -2,6 +2,10 @@
 import  express  from "express"
 
 console.log("hola mundo")
+console.log("hola mundo2")
+console.log("hola mundo3")
+
+
 
 /* 1 - Configurar un PUERTO */
 
