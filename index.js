@@ -7,6 +7,7 @@ import morgan from "morgan";
 /* imports para construir las rutas hacia el index (configuracion D de los middlewares) */
 import path from "path";
 import { fileURLToPath } from "url";
+import productosRouter from "./src/routes/productos.routes.js";
 
 //! 1 - Configurar un PUERTO
 const app = express();
@@ -27,14 +28,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 //f - express: interpretar la ubicacion del index.html desde public
 const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename)
+const __dirname = path.dirname(__filename);
 app.use(express.static(path.join(__dirname, "/public")));
-
 
 //! 3 - Configurar las RUTAS
 //http://localhost:4001/
-app.get("/", (req, res) => {
-  /* Agregar toda la logica de nuestro backend */
-  console.log("Procesando una solicitud get");
-  res.send("Respuesta del backend RollingCoffe");
-});
+
+app.use("/api", productosRouter);
