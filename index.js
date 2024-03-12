@@ -8,6 +8,8 @@ import morgan from "morgan";
 import path from "path";
 import { fileURLToPath } from "url";
 import productosRouter from "./src/routes/productos.routes.js";
+/* import de la database */
+import "./src/database/database.js";
 
 //! 1 - Configurar un PUERTO
 const app = express();
