@@ -43,3 +43,8 @@ const productoSchema = new Schema({
     maxLength: 1000,
   },
 });
+
+//! Crear el MODELO de producto.
+const Producto = mongoose.model("producto", productoSchema);
+
+export default Producto;
