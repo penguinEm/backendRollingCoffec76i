@@ -82,3 +82,29 @@ export const editarProducto = async (req, res) => {
     });
   }
 };
+
+
+//! DELETE borrar por id
+export const borrarProducto = async (req, res) => {
+  try {
+    //verificar si el producto existe por su id
+    const productoBuscado = await Producto.findById(req.params.id);
+    // responder si no es correcto con un 404
+    if (productoBuscado === null) {
+      return res.status(404).json({
+        mensaje: "No se encontro el producto con el id especificado",
+      });
+    }
+    //si el producto es correcto, solicitamos actualizar en la DB
+    await Producto.findByIdAndDelete(req.params.id);
+    //responder al usuario que se actualizo correctamente la tarea
+    res.status(200).json({
+      mensaje: "El producto ha sido borrado correctamente",
+    });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({
+      mensaje: "Error inesperado, no se pudo borrar el producto",
+    });
+  }
+};
