@@ -44,7 +44,7 @@ const productoSchema = new Schema({
   },
 });
 
-//! Crear el MODELO de producto.
+//! Crear el MODELO de producto (es la representacion de la coleccion de productos)
 const Producto = mongoose.model("producto", productoSchema);
 
 export default Producto;
