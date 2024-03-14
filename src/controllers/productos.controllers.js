@@ -18,17 +18,17 @@ export const listarProductos = async (req, res) => {
 export const obtenerProducto = async (req, res) => {
   try {
     //extraer el id de la ruta
-    console.log(req.params.id)
+    console.log(req.params.id);
     //solicidar a la bd buscar ese producto
-    const productoBuscado = await Producto.findById(req.params.id)
+    const productoBuscado = await Producto.findById(req.params.id);
     //pregutnar si no se encontro el producto
-    if (productoBuscado === null){
+    if (productoBuscado === null) {
       return res.status(404).json({
-        mensaje: "Producto con el id enviado no existe"
-      })
+        mensaje: "Producto con el id enviado no existe",
+      });
     }
     //enviar respuesta
-    res.status(200).json(productoBuscado)
+    res.status(200).json(productoBuscado);
   } catch (error) {
     console.error(error);
     res.status(400).json({
@@ -54,6 +54,31 @@ export const crearProductoDb = async (req, res) => {
     //Consultar en caso de ser necesario el numero de los status en: https://http.cat/
     res.status(400).json({
       mensaje: "El producto no pudo ser creado",
+    });
+  }
+};
+
+//! PUT para editar producto por id
+export const editarProducto = async (req, res) => {
+  try {
+    //verificar si el producto existe por su id
+    const productoBuscado = await Producto.findById(req.params.id);
+    // responder si no es correcto con un 404
+    if (productoBuscado === null) {
+      return res.status(404).json({
+        mensaje: "No se encontro el producto con el id especificado",
+      });
+    }
+    //si el producto es correcto, solicitamos actualizar en la DB
+    await Producto.findByIdAndUpdate(req.params.id, req.body);
+    //responder al usuario que se actualizo correctamente la tarea
+    res.status(200).json({
+      mensaje: "El producto ha sido editado correctamente",
+    });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({
+      mensaje: "Error inesperado, no se pudo editar el producto",
     });
   }
 };
