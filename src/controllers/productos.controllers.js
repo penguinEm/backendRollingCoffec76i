@@ -1,9 +1,17 @@
 //!Lógica para controlar los productos
 import Producto from "../database/models/producto.js";
 
-export const listarProductos = (req, res) => {
-  console.log("Aqui prepparo la lista de productos");
-  res.send("Enviando la lista de productos");
+//! GET de todos los productos
+export const listarProductos = async(req, res) => {
+  try {
+    const productos = await Producto.find() //al find le puedo agregar filtros separado por comas
+    res.status(200).json(productos)
+  } catch (error) {
+    console.error(error)
+    res.status(500)({
+      mensaje: "Error al listar los productos"
+    })
+  }
 };
 
 //! POST para crear productos
