@@ -1,4 +1,4 @@
-//!Lógica para controlar los productos
+//!Lógica para controlar los PRODUCTOS 
 import Producto from "../database/models/producto.js";
 
 //! GET de todos los productos
@@ -83,7 +83,6 @@ export const editarProducto = async (req, res) => {
   }
 };
 
-
 //! DELETE borrar por id
 export const borrarProducto = async (req, res) => {
   try {
@@ -108,3 +107,4 @@ export const borrarProducto = async (req, res) => {
     });
   }
 };
+

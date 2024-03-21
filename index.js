@@ -7,7 +7,9 @@ import morgan from "morgan";
 /* imports para construir las rutas hacia el index (configuracion D de los middlewares) */
 import path from "path";
 import { fileURLToPath } from "url";
+/* imports de las rutas */
 import productosRouter from "./src/routes/productos.routes.js";
+import usuariosRouter from "./src/routes/usuarios.routes.js";
 /* import de la database */
 import "./src/database/database.js";
 
@@ -37,3 +39,4 @@ app.use(express.static(path.join(__dirname, "/public")));
 //http://localhost:4001/
 
 app.use("/api", productosRouter);
+app.use("/api", usuariosRouter);
